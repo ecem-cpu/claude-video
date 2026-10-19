@@ -1,0 +1,204 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;padding:0;background:#fff}
+svg{display:block;font-family:Inter,sans-serif}
+</style></head><body>
+<svg width="1080" height="1350" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#bfe3f2"/><stop offset=".55" stop-color="#e9f6fa"/><stop offset="1" stop-color="#ffe6c7"/>
+  </linearGradient>
+  <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#fff7e0"/><stop offset=".35" stop-color="#ffe2a8" stop-opacity=".9"/><stop offset="1" stop-color="#ffd59a" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#3fa9b8"/><stop offset=".4" stop-color="#16788f"/><stop offset="1" stop-color="#0b4766"/>
+  </linearGradient>
+  <linearGradient id="hill1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fb9a6"/><stop offset="1" stop-color="#a9cbbb"/></linearGradient>
+  <linearGradient id="hill2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5f9a7f"/><stop offset="1" stop-color="#7cae95"/></linearGradient>
+  <linearGradient id="body" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#f4f6f8"/><stop offset=".5" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe4e9"/>
+  </linearGradient>
+  <linearGradient id="side" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c3cad2"/><stop offset="1" stop-color="#9aa4af"/></linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a313d"/><stop offset="1" stop-color="#141921"/></linearGradient>
+  <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#e9edf1"/><stop offset=".45" stop-color="#9aa3ad"/><stop offset=".55" stop-color="#c9cfd6"/><stop offset="1" stop-color="#6f7983"/>
+  </linearGradient>
+  <radialGradient id="drumwater" cx=".45" cy=".4" r=".7">
+    <stop offset="0" stop-color="#bff2f7"/><stop offset=".45" stop-color="#3cc0d4"/><stop offset="1" stop-color="#0a5f82"/>
+  </radialGradient>
+  <linearGradient id="splash" x1="1" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#7fe0ec"/><stop offset=".5" stop-color="#2aa6c0"/><stop offset="1" stop-color="#0e6d8e"/>
+  </linearGradient>
+  <linearGradient id="wave" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#3dbcd0"/><stop offset=".5" stop-color="#137a98"/><stop offset="1" stop-color="#083a58"/>
+  </linearGradient>
+  <linearGradient id="pier" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9c2b6"/><stop offset="1" stop-color="#8d8579"/></linearGradient>
+  <clipPath id="drumclip"><circle cx="770" cy="735" r="150"/></clipPath>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#0b3550" flood-opacity=".35"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
+</defs>
+
+<!-- sky -->
+<rect width="1080" height="1350" fill="url(#sky)"/>
+<g transform="translate(0,90)"><circle cx="360" cy="800" r="330" fill="url(#sun)"/>
+<!-- clouds -->
+<g fill="#fff" opacity=".85">
+  <ellipse cx="930" cy="150" rx="120" ry="26"/><ellipse cx="880" cy="135" rx="70" ry="30"/>
+  <ellipse cx="640" cy="250" rx="90" ry="16" opacity=".7"/>
+</g>
+
+<!-- far hills: Ereğli coast -->
+<path d="M0 760 C 120 700 220 690 330 720 C 430 745 500 700 600 690 C 720 680 820 720 1080 700 L1080 860 L0 860 Z" fill="url(#hill1)"/>
+<path d="M0 820 C 90 780 180 770 260 790 C 330 805 380 775 450 770 L 520 860 L0 860 Z" fill="url(#hill2)"/>
+<!-- houses on hill -->
+<g>
+  <rect x="60" y="800" width="22" height="18" fill="#f3efe7"/><path d="M57 800 l14 -10 14 10z" fill="#c4553f"/>
+  <rect x="100" y="792" width="26" height="22" fill="#fbf8f2"/><path d="M97 792 l16 -11 16 11z" fill="#b84a36"/>
+  <rect x="150" y="798" width="20" height="18" fill="#efe9de"/><path d="M147 798 l13 -9 13 9z" fill="#c4553f"/>
+  <rect x="190" y="790" width="30" height="24" fill="#fbf8f2"/><path d="M187 790 l18 -12 18 12z" fill="#b84a36"/>
+  <rect x="240" y="800" width="22" height="18" fill="#f3efe7"/><path d="M237 800 l14 -10 14 10z" fill="#c4553f"/>
+  <rect x="290" y="804" width="24" height="18" fill="#fbf8f2"/><path d="M287 804 l15 -10 15 10z" fill="#b84a36"/>
+  <rect x="335" y="798" width="20" height="20" fill="#efe9de"/><path d="M332 798 l13 -9 13 9z" fill="#c4553f"/>
+  <rect x="120" y="826" width="28" height="22" fill="#fbf8f2"/><rect x="170" y="830" width="24" height="20" fill="#efe9de"/>
+  <rect x="215" y="824" width="30" height="26" fill="#fbf8f2"/><rect x="270" y="832" width="22" height="18" fill="#f3efe7"/>
+  <rect x="380" y="815" width="26" height="22" fill="#fbf8f2"/><rect x="420" y="822" width="22" height="18" fill="#efe9de"/>
+  <!-- mosque -->
+  <path d="M 230 790 a 22 22 0 0 1 44 0 z" fill="#e8e2d6"/><rect x="226" y="790" width="52" height="10" fill="#e8e2d6"/>
+  <rect x="283" y="745" width="5" height="55" fill="#ece6da"/><path d="M281 745 l4.5 -12 4.5 12z" fill="#9aa7ad"/>
+</g>
+
+<!-- sea -->
+<rect x="0" y="855" width="1080" height="400" fill="url(#sea)"/>
+<rect x="0" y="855" width="1080" height="3" fill="#ffffff" opacity=".6"/>
+<g stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".35">
+  <path d="M40 890 h60 M180 905 h90 M360 885 h50 M520 915 h80 M120 940 h70 M300 950 h110 M40 990 h90"/>
+</g>
+<ellipse cx="360" cy="875" rx="220" ry="14" fill="#fff4d6" opacity=".55" filter="url(#soft)"/>
+
+<!-- ship on horizon -->
+<g transform="translate(560,838)">
+  <path d="M0 14 L120 14 L110 26 L8 26 Z" fill="#33424f"/>
+  <rect x="80" y="0" width="22" height="14" fill="#e7e9eb"/><rect x="10" y="6" width="64" height="8" fill="#b9472f"/>
+  <rect x="88" y="-8" width="6" height="8" fill="#33424f"/>
+</g>
+
+<!-- breakwater + lighthouse -->
+<path d="M0 905 L300 895 L310 915 L0 925 Z" fill="#8e8a82"/>
+<g transform="translate(250,770)">
+  <path d="M0 125 L8 0 L28 0 L36 125 Z" fill="#ffffff"/>
+  <path d="M2 100 L34 100 L35 115 L1 115 Z M4 60 L32 60 L33 76 L3 76 Z M6 22 L30 22 L31 38 L5 38 Z" fill="#d63a2f"/>
+  <rect x="4" y="-20" width="28" height="22" fill="#2b3440"/><rect x="9" y="-16" width="18" height="14" fill="#ffe28a"/>
+  <path d="M0 -20 L18 -36 L36 -20 Z" fill="#d63a2f"/>
+  <path d="M18 -9 L-200 -60 L-200 40 Z" fill="#fff3c4" opacity=".25"/>
+</g>
+
+</g>
+<!-- seagulls -->
+<g fill="none" stroke="#2c4656" stroke-width="3.5" stroke-linecap="round">
+  <path d="M470 560 q12 -12 24 0 q12 -12 24 0"/>
+  <path d="M420 620 q9 -9 18 0 q9 -9 18 0"/>
+  <path d="M960 290 q10 -10 20 0 q10 -10 20 0"/>
+</g>
+
+<!-- pier deck -->
+<path d="M430 1010 L1080 1000 L1080 1090 L470 1095 Z" fill="url(#pier)"/>
+<path d="M430 1010 L1080 1000 L1080 1012 L432 1022 Z" fill="#e3ddd1"/>
+<g fill="#6e675d"><rect x="520" y="1093" width="16" height="70"/><rect x="760" y="1092" width="16" height="70"/><rect x="1000" y="1090" width="16" height="70"/></g>
+
+<!-- WASHING MACHINE -->
+<g transform="translate(126,121) scale(.88)"><g filter="url(#shadow)">
+  <ellipse cx="780" cy="1012" rx="270" ry="18" fill="#000" opacity=".25"/>
+  <path d="M1010 405 L1050 435 L1050 1000 L1010 1008 Z" fill="url(#side)"/>
+  <rect x="530" y="400" width="480" height="610" rx="26" fill="url(#body)"/>
+  <!-- panel -->
+  <path d="M556 400 H984 a26 26 0 0 1 26 26 V505 H530 V426 a26 26 0 0 1 26 -26z" fill="url(#panel)"/>
+  <rect x="552" y="420" width="120" height="66" rx="8" fill="#e6e9ec"/>
+  <rect x="560" y="428" width="104" height="6" rx="3" fill="#c5cbd1"/>
+  <text x="690" y="448" font-size="17" font-weight="800" fill="#e8eef2" letter-spacing="2">SIEMENS</text>
+  <text x="690" y="468" font-size="10" fill="#8f9aa6" letter-spacing="1">iQ700</text>
+  <circle cx="820" cy="452" r="30" fill="#1b2029" stroke="#00b3b8" stroke-width="4"/>
+  <circle cx="820" cy="452" r="20" fill="#2b323d"/><rect x="818" y="434" width="4" height="10" rx="2" fill="#cdd5dc"/>
+  <rect x="868" y="428" width="122" height="48" rx="6" fill="#0d1117" stroke="#36404c"/>
+  <text x="880" y="460" font-size="22" font-weight="600" fill="#5fe3e8">1400</text>
+  <text x="944" y="460" font-size="22" font-weight="600" fill="#5fe3e8">40°</text>
+  <g fill="#7b8794"><circle cx="760" cy="490" r="3"/><circle cx="880" cy="490" r="3"/><circle cx="910" cy="490" r="3"/><circle cx="940" cy="490" r="3"/><circle cx="970" cy="490" r="3"/></g>
+  <!-- door -->
+  <circle cx="770" cy="735" r="205" fill="#e1e6ea"/>
+  <circle cx="770" cy="735" r="192" fill="url(#ring)"/>
+  <circle cx="770" cy="735" r="168" fill="#1a2330"/>
+  <g clip-path="url(#drumclip)">
+    <circle cx="770" cy="735" r="150" fill="url(#drumwater)"/>
+    <path d="M610 760 C 660 700 720 820 780 760 C 840 700 890 800 930 750 L930 900 L610 900 Z" fill="#0d6f93" opacity=".8"/>
+    <path d="M610 720 C 670 650 720 760 790 700 C 850 650 900 730 930 690" fill="none" stroke="#e9fdff" stroke-width="10" opacity=".8" stroke-linecap="round"/>
+    <path d="M700 640 a90 90 0 0 1 150 60" fill="none" stroke="#ffffff" stroke-width="14" opacity=".35" stroke-linecap="round"/>
+    <g fill="#ffffff" opacity=".85">
+      <circle cx="690" cy="800" r="9"/><circle cx="720" cy="830" r="5"/><circle cx="830" cy="815" r="7"/><circle cx="860" cy="780" r="4"/>
+      <circle cx="760" cy="850" r="6"/><circle cx="650" cy="760" r="4"/><circle cx="805" cy="640" r="5"/>
+    </g>
+  </g>
+  <path d="M640 640 a165 165 0 0 1 120 -70" fill="none" stroke="#ffffff" stroke-width="8" opacity=".5" stroke-linecap="round"/>
+  <rect x="955" y="700" width="18" height="70" rx="9" fill="#b9c1c9"/>
+</g>
+
+</g>
+<!-- SPLASH flowing out of drum into sea -->
+<path d="M690 845 C 620 880 560 900 520 960 C 480 1020 420 1060 330 1080 C 240 1100 120 1090 0 1120 L0 1250 L560 1250 C 520 1180 540 1120 590 1060 C 640 1010 680 950 745 895 Z" fill="url(#splash)" opacity=".95"/>
+<path d="M690 855 C 610 900 580 940 540 990" fill="none" stroke="#e8fdff" stroke-width="9" stroke-linecap="round" opacity=".8"/>
+<g fill="#dff9fd">
+  <circle cx="600" cy="830" r="10"/><circle cx="570" cy="870" r="7"/><circle cx="545" cy="820" r="5"/><circle cx="520" cy="905" r="9"/>
+  <circle cx="480" cy="940" r="6"/><circle cx="620" cy="790" r="6"/><circle cx="455" cy="990" r="8"/><circle cx="500" cy="860" r="4"/>
+  <circle cx="420" cy="1020" r="5"/><circle cx="580" cy="760" r="4"/>
+</g>
+
+<!-- foreground wave -->
+<path d="M0 1110 C 150 1060 260 1090 330 1120 C 380 1140 430 1130 450 1100 C 470 1070 520 1080 540 1110 C 600 1180 760 1130 900 1150 C 980 1160 1040 1140 1080 1130 L1080 1350 L0 1350 Z" fill="url(#wave)"/>
+<path d="M0 1110 C 150 1060 260 1090 330 1120 C 380 1140 430 1130 450 1100 C 470 1070 520 1080 540 1110 C 600 1180 760 1130 900 1150 C 980 1160 1040 1140 1080 1130" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity=".9"/>
+<g fill="#ffffff" opacity=".9">
+  <circle cx="450" cy="1088" r="14"/><circle cx="470" cy="1076" r="10"/><circle cx="430" cy="1096" r="9"/><circle cx="500" cy="1078" r="8"/>
+  <circle cx="320" cy="1108" r="8"/><circle cx="300" cy="1098" r="5"/><circle cx="540" cy="1100" r="7"/>
+</g>
+
+<!-- HEADLINE -->
+<g>
+  <rect x="60" y="70" width="250" height="44" rx="22" fill="#0b4766"/>
+  <path d="M88 82 a10 10 0 0 1 20 0 c0 8 -10 18 -10 18 s-10 -10 -10 -18z" fill="#ffd166"/><circle cx="98" cy="82" r="3.5" fill="#0b4766"/>
+  <text x="120" y="99" font-size="20" font-weight="700" fill="#ffffff">Kdz. Ereğli'de</text>
+  <text x="60" y="200" font-size="66" font-weight="900" fill="#0b2c44" letter-spacing="-2">Dalgası</text>
+  <text x="60" y="270" font-size="66" font-weight="900" fill="#0b2c44" letter-spacing="-2">Karadeniz'den,</text>
+  <text x="60" y="350" font-size="74" font-weight="900" fill="#009999" letter-spacing="-2">temizliği</text>
+  <text x="60" y="428" font-size="74" font-weight="900" fill="#009999" letter-spacing="-2">Siemens'ten!</text>
+  <path d="M62 452 C 160 438 300 440 470 452" fill="none" stroke="#ffb347" stroke-width="8" stroke-linecap="round"/>
+</g>
+<text font-size="22" fill="#1f3d52" font-weight="500">
+  <tspan x="60" y="505">Siemens çamaşır makinesi, güçlü ve</tspan>
+  <tspan x="60" y="535">sessiz motoruyla en zorlu lekeleri</tspan>
+  <tspan x="60" y="565">bile dalga dalga temizler.</tspan>
+</text>
+
+<!-- features -->
+<g font-size="19" fill="#0b2c44" font-weight="700">
+  <g transform="translate(60,600)">
+    <circle cx="30" cy="30" r="30" fill="#ffffff" stroke="#009999" stroke-width="3"/>
+    <path d="M18 38 c4 -6 8 -6 12 0 s8 6 12 0 M18 28 c4 -6 8 -6 12 0 s8 6 12 0" fill="none" stroke="#009999" stroke-width="3" stroke-linecap="round"/>
+    <text x="74" y="26">Sessiz &amp; Güçlü</text><text x="74" y="49" font-weight="500" fill="#365a70">iQdrive Motor</text>
+  </g>
+  <g transform="translate(60,680)">
+    <circle cx="30" cy="30" r="30" fill="#ffffff" stroke="#009999" stroke-width="3"/>
+    <path d="M30 14 c0 0 -11 13 -11 20 a11 11 0 0 0 22 0 c0 -7 -11 -20 -11 -20z" fill="none" stroke="#009999" stroke-width="3"/>
+    <text x="74" y="26">Akıllı Deterjan</text><text x="74" y="49" font-weight="500" fill="#365a70">Otomatik Dozajlama</text>
+  </g>
+  <g transform="translate(60,760)">
+    <circle cx="30" cy="30" r="30" fill="#ffffff" stroke="#009999" stroke-width="3"/>
+    <path d="M30 14 l4 10 10 1 -8 7 3 10 -9 -6 -9 6 3 -10 -8 -7 10 -1z" fill="none" stroke="#009999" stroke-width="3" stroke-linejoin="round"/>
+    <text x="74" y="26">Leke Karşıtı</text><text x="74" y="49" font-weight="500" fill="#365a70">Özel Programlar</text>
+  </g>
+</g>
+
+<!-- bottom bar -->
+<rect x="0" y="1232" width="1080" height="118" fill="#082f47" opacity=".92"/>
+<text x="60" y="1308" font-size="58" font-weight="900" fill="#00b3b8" letter-spacing="3">SIEMENS</text>
+<g transform="translate(1020,0)" text-anchor="end">
+  <text x="0" y="1283" font-size="30" font-weight="800" fill="#ffffff">@siemensmaki</text>
+  <text x="0" y="1318" font-size="21" font-weight="500" fill="#a9d8e0">Karadeniz Ereğli</text>
+</g>
+</svg></body></html>
