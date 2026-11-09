@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>10 Kasım Story</title>
-<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200&family=Pinyon+Script&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Inter:wght@500&family=Pinyon+Script&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{ --ink:#1f1f1f; --gold:#B8913A; --muted:#55524d; }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -16,25 +16,27 @@
   .center{position:absolute;left:0;right:0;text-align:center}
   img{position:absolute;display:block}
 
-  #years{top:250px;font-family:Barlow,sans-serif;font-weight:600;font-size:26px;letter-spacing:.4em;padding-left:.4em;color:var(--gold)}
   #photo{left:80px;top:290px;width:920px;mix-blend-mode:multiply;
     -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 70%,transparent 98%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);
     -webkit-mask-composite:source-in;
             mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 70%,transparent 98%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);
             mask-composite:intersect}
   #script{position:absolute;left:660px;top:772px;font-family:'Pinyon Script',cursive;font-size:70px;line-height:.9;color:#262523;transform:rotate(-7deg);z-index:2}
-  #big{top:905px;white-space:nowrap;font-family:Antonio,sans-serif;font-weight:100;font-size:300px;line-height:1;letter-spacing:-.005em;color:var(--ink)}
-  #quote{top:1245px;font-family:'Pinyon Script',cursive;font-size:58px;line-height:1.2;color:#262523}
-  #sig{left:610px;top:1455px;width:230px;opacity:.9}
-  #logo{left:50%;top:1600px;width:400px;margin-left:-200px}
+  #ten{top:905px;font-variant-numeric:lining-nums;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:132px;line-height:1}
+  #kasim{top:1035px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:76px;letter-spacing:.18em;padding-left:.18em;line-height:1}
+  #sub{top:1132px;font-family:Inter,sans-serif;font-weight:500;font-size:26px;letter-spacing:.4em;padding-left:.4em;color:var(--gold)}
+  #quote{top:1205px;font-family:'Pinyon Script',cursive;font-size:56px;line-height:1.2;color:#262523}
+  #sig{left:620px;top:1425px;width:230px;opacity:.9}
+  #logo{left:50%;top:1585px;width:400px;margin-left:-200px}
 </style>
 </head>
 <body>
 <div id="stage">
   <div id="marble"></div>
-  <div id="years" class="center">1938 · SAAT 09.05</div>
   <img id="photo" src="ataturk-selam-sharp.jpg" alt="">
-  <div id="big" class="center">10 KASIM</div>
+  <div id="ten" class="center">10</div>
+  <div id="kasim" class="center">KASIM</div>
+  <div id="sub" class="center">1938 · SAAT 09.05</div>
   <div id="script">Saygı ve<br>&nbsp;&nbsp;&nbsp;özlemle…</div>
   <div id="quote" class="center">Bu milleti ben değil,<br>içimizdeki ruh,<br>damarımızdaki kan kurtarmıştır.</div>
   <img id="sig" src="imza.png" alt="Gazi M. Kemal">
