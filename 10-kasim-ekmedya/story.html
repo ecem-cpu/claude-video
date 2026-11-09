@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>10 Kasım Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#E1594A;   /* EK Medya red, sampled from the logo */
+    --cream:#FAE0AC;   /* EK Medya cream */
+    --paper:#F3EDE4;
+    --ink:#1E1B19;
+    --muted:#7d746c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1920px;background:var(--paper);overflow:hidden}
+  #stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--paper);color:var(--ink);font-family:Inter,sans-serif}
+  #paper{position:absolute;inset:0;opacity:.22;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3'/><feColorMatrix values='0 0 0 0 .55  0 0 0 0 .5  0 0 0 0 .45  0 0 0 .6 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>");}
+  .center{position:absolute;left:0;right:0;text-align:center}
+
+  #title{top:150px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:176px;line-height:1;letter-spacing:.02em}
+  #title span{display:inline-block}
+  #sub{top:345px;font-size:30px;font-weight:500;letter-spacing:.42em;color:var(--coral);padding-left:.42em}
+
+  #photo{position:absolute;left:0;top:395px;width:1080px;height:800px;
+    background:url(ataturk-anitkabir.jpg) center/cover no-repeat;mix-blend-mode:multiply;transform-origin:50% 30%;
+    filter:brightness(1.1) contrast(1.15);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 10%,#000 80%,transparent 100%),linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%);
+    -webkit-mask-composite:source-in;
+            mask-image:linear-gradient(to bottom,transparent 0,#000 10%,#000 80%,transparent 100%),linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%);
+            mask-composite:intersect}
+
+  #quote{top:1192px;padding:0 120px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:42px;line-height:1.32}
+  #quote .l{display:block}
+  #attrib{top:1450px;font-size:21px;letter-spacing:.34em;color:var(--muted);font-weight:500}
+
+  #band{position:absolute;left:0;right:0;top:1515px;bottom:0;background:var(--coral);overflow:hidden}
+  #band::before{content:"";position:absolute;left:60px;right:60px;top:26px;height:2px;background:var(--cream);opacity:.55}
+  #msg{position:absolute;left:0;right:0;top:58px;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:46px;color:var(--cream)}
+  #logo{position:absolute;left:50%;top:138px;width:150px;margin-left:-75px}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="title" class="center"></div>
+  <div id="sub" class="center">1938 · SAAT 09.05</div>
+  <div id="photo"></div>
+  <div id="quote" class="center">
+    <span class="l">“Beni görmek demek mutlaka yüzümü</span>
+    <span class="l">görmek değildir. Benim fikirlerimi,</span>
+    <span class="l">benim duygularımı anlıyorsanız ve</span>
+    <span class="l">hissediyorsanız bu kâfidir.”</span>
+  </div>
+  <div id="attrib" class="center">MUSTAFA KEMAL ATATÜRK</div>
+  <div id="band">
+    <div id="msg">Saygı, minnet ve özlemle anıyoruz.</div>
+    <img id="logo" src="ekmedya-logo.png" alt="EK Medya">
+  </div>
+  <div id="paper"></div>
+</div>
+<script>
+const DURATION = 12;
+const $ = id => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const prog = (t, s, d) => clamp((t - s) / d);
+const easeOut = x => 1 - Math.pow(1 - x, 3);
+const easeInOut = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+function fadeUp(el, p, dist = 30) { const e = easeOut(p); el.style.opacity = e; el.style.transform = `translateY(${(1 - e) * dist}px)`; }
+
+const letters = [...'10 KASIM'].map(ch => { const s = document.createElement('span'); s.innerHTML = ch === ' ' ? '&nbsp;' : ch; $('title').appendChild(s); return s; });
+const lines = [...document.querySelectorAll('#quote .l')];
+
+function render(t) {
+  $('stage').style.opacity = easeOut(prog(t, 0, 0.6));
+  letters.forEach((s, i) => {
+    const p = easeOut(prog(t, 0.3 + i * 0.09, 0.8));
+    s.style.opacity = p; s.style.transform = `translateY(${(1 - p) * 40}px)`; s.style.filter = `blur(${(1 - p) * 8}px)`;
+  });
+  const ps = easeOut(prog(t, 1.4, 1.0));
+  $('sub').style.opacity = ps; $('sub').style.letterSpacing = `${0.7 - 0.28 * ps}em`;
+
+  const pp = easeOut(prog(t, 1.0, 2.2));
+  $('photo').style.opacity = pp;
+  $('photo').style.transform = `translateY(${(1 - pp) * 50}px) scale(${1.06 - 0.06 * easeOut(prog(t, 0, DURATION))})`;
+
+  lines.forEach((l, i) => fadeUp(l, prog(t, 3.4 + i * 0.6, 1.0), 18));
+  fadeUp($('attrib'), prog(t, 6.0, 0.9), 14);
+
+  const pb = easeInOut(prog(t, 6.9, 1.1));
+  $('band').style.transform = `translateY(${(1 - pb) * 420}px)`;
+  fadeUp($('msg'), prog(t, 7.8, 1.0), 20);
+  const pl = easeOut(prog(t, 8.5, 1.0));
+  $('logo').style.opacity = pl; $('logo').style.transform = `scale(${0.9 + 0.1 * pl})`;
+}
+window.DURATION = DURATION; window.render = render;
+if (!new URLSearchParams(location.search).has('capture')) {
+  const t0 = performance.now();
+  (function loop(now) { render(((now - t0) / 1000) % DURATION); requestAnimationFrame(loop); })(t0);
+} else render(0);
+</script>
+</body>
+</html>
