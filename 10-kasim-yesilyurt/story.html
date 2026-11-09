@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>10 Kasım Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Pinyon+Script&family=Inter:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{ --mist:#ECECEA; --ink:#232220; --gold:#B8913A; --muted:#6f6c66; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1920px;overflow:hidden;background:var(--mist)}
+  #stage{position:relative;width:1080px;height:1920px;overflow:hidden;color:var(--ink);
+    background:radial-gradient(90% 60% at 50% 35%, #f7f7f5 0%, #ececea 55%, #dcdcd9 100%)}
+  /* soft clouds */
+  #mist{position:absolute;inset:0;opacity:.55;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1080' height='1920'><filter id='c'><feTurbulence type='fractalNoise' baseFrequency='.004 .006' numOctaves='5' seed='7'/><feColorMatrix values='0 0 0 0 .78  0 0 0 0 .78  0 0 0 0 .77  0 0 0 1.1 -.35'/></filter><rect width='1080' height='1920' filter='url(%23c)'/></svg>")}
+  .center{position:absolute;left:0;right:0;text-align:center}
+  img{position:absolute;display:block}
+
+  #photo{left:-20px;top:110px;width:1120px;mix-blend-mode:multiply;filter:contrast(1.08);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 78%,transparent 97%),linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%);
+    -webkit-mask-composite:source-in;
+            mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 78%,transparent 97%),linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%);
+            mask-composite:intersect}
+
+  #ten{top:905px;font-variant-numeric:lining-nums;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:132px;line-height:1}
+  #kasim{top:1035px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:76px;letter-spacing:.18em;padding-left:.18em;line-height:1}
+  #sub{top:1132px;font-family:Inter,sans-serif;font-weight:500;font-size:26px;letter-spacing:.4em;padding-left:.4em;color:var(--gold)}
+
+  #quote{top:1208px;font-family:'Pinyon Script',cursive;font-size:56px;line-height:1.25;color:#2c2a27}
+  #sig{left:600px;top:1420px;width:250px;opacity:.9}
+
+  #logo{left:50%;top:1595px;width:430px;margin-left:-215px}
+</style>
+</head>
+<body>
+<div id="stage">
+  <img id="photo" src="ataturk-selam.jpg" alt="">
+  <div id="mist"></div>
+  <div id="ten" class="center">10</div>
+  <div id="kasim" class="center">KASIM</div>
+  <div id="sub" class="center">1938 · SAAT 09.05</div>
+  <div id="quote" class="center">Bu milleti ben değil,<br>içimizdeki ruh,<br>damarımızdaki kan kurtarmıştır.</div>
+  <img id="sig" src="imza.png" alt="Gazi M. Kemal">
+  <img id="logo" src="yesilyurt-logo.png" alt="Yeşilyurt Apple Onarım Merkezi">
+</div>
+</body>
+</html>
