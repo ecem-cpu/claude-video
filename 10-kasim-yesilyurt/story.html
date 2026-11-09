@@ -3,40 +3,43 @@
 <head>
 <meta charset="utf-8">
 <title>10 Kasım Story</title>
-<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200&family=Pinyon+Script&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Pinyon+Script&family=Inter:wght@500&display=swap" rel="stylesheet">
 <style>
-  :root{ --ink:#1f1f1f; --gold:#B8913A; --muted:#55524d; }
+  :root{ --mist:#ECECEA; --ink:#232220; --gold:#B8913A; --muted:#6f6c66; }
   *{margin:0;padding:0;box-sizing:border-box}
-  html,body{width:1080px;height:1920px;overflow:hidden;background:#f1f1f0}
+  html,body{width:1080px;height:1920px;overflow:hidden;background:var(--mist)}
   #stage{position:relative;width:1080px;height:1920px;overflow:hidden;color:var(--ink);
-    background:radial-gradient(80% 55% at 50% 30%, #fbfbfa 0%, #f0f0ee 60%, #e3e3e1 100%)}
-  /* faint marble veins */
-  #marble{position:absolute;inset:0;opacity:.5;mix-blend-mode:multiply;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1080' height='1920'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='.0025 .006' numOctaves='6' seed='11'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncR type='table' tableValues='1 1 .86 1 1'/><feFuncG type='table' tableValues='1 1 .86 1 1'/><feFuncB type='table' tableValues='1 1 .86 1 1'/></feComponentTransfer></filter><rect width='1080' height='1920' filter='url(%23m)'/></svg>")}
+    background:radial-gradient(90% 60% at 50% 35%, #f7f7f5 0%, #ececea 55%, #dcdcd9 100%)}
+  /* soft clouds */
+  #mist{position:absolute;inset:0;opacity:.55;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1080' height='1920'><filter id='c'><feTurbulence type='fractalNoise' baseFrequency='.004 .006' numOctaves='5' seed='7'/><feColorMatrix values='0 0 0 0 .78  0 0 0 0 .78  0 0 0 0 .77  0 0 0 1.1 -.35'/></filter><rect width='1080' height='1920' filter='url(%23c)'/></svg>")}
   .center{position:absolute;left:0;right:0;text-align:center}
   img{position:absolute;display:block}
 
-  #years{top:250px;font-family:Barlow,sans-serif;font-weight:600;font-size:26px;letter-spacing:.4em;padding-left:.4em;color:var(--gold)}
-  #photo{left:80px;top:290px;width:920px;mix-blend-mode:multiply;
-    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 70%,transparent 98%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);
-    -webkit-mask-composite:source-in;
-            mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 70%,transparent 98%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);
-            mask-composite:intersect}
-  #script{position:absolute;left:660px;top:772px;font-family:'Pinyon Script',cursive;font-size:70px;line-height:.9;color:#262523;transform:rotate(-7deg);z-index:2}
-  #big{top:905px;white-space:nowrap;font-family:Antonio,sans-serif;font-weight:100;font-size:300px;line-height:1;letter-spacing:-.005em;color:var(--ink)}
-  #msg{top:1265px;font-family:Barlow,sans-serif;font-size:36px;line-height:1.4;color:var(--muted);padding:0 120px}
-  #msg b{font-weight:600;color:var(--ink)}
-  #logo{left:50%;top:1520px;width:400px;margin-left:-200px}
+  #photo{left:150px;top:95px;width:811px;mix-blend-mode:multiply;filter:contrast(1.06);
+    -webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,#000 80%,transparent 100%)}
+
+  #ten{top:905px;font-variant-numeric:lining-nums;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:132px;line-height:1}
+  #kasim{top:1035px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:76px;letter-spacing:.18em;padding-left:.18em;line-height:1}
+  #sub{top:1132px;font-family:Inter,sans-serif;font-weight:500;font-size:26px;letter-spacing:.4em;padding-left:.4em;color:var(--gold)}
+
+  #quote{top:1205px;font-family:'Pinyon Script',cursive;font-size:50px;line-height:1.16;color:#2c2a27}
+  #sig{left:680px;top:1428px;width:200px;opacity:.9}
+
+  #msg{top:1548px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;color:var(--muted)}
+  #logo{left:50%;top:1612px;width:400px;margin-left:-200px}
 </style>
 </head>
 <body>
 <div id="stage">
-  <div id="marble"></div>
-  <div id="years" class="center">1938 · SAAT 09.05</div>
-  <img id="photo" src="ataturk-selam-sharp.jpg" alt="">
-  <div id="big" class="center">10 KASIM</div>
-  <div id="script">Saygı ve<br>&nbsp;&nbsp;&nbsp;özlemle…</div>
-  <div id="msg" class="center">Ulu Önder Gazi Mustafa Kemal Atatürk’ü,<br><b>aramızdan ayrılışının 88. yılında<br>saygı, minnet ve özlemle anıyoruz.</b></div>
+  <img id="photo" src="ataturk-profil.png" alt="">
+  <div id="mist"></div>
+  <div id="ten" class="center">10</div>
+  <div id="kasim" class="center">KASIM</div>
+  <div id="sub" class="center">1938 · SAAT 09.05</div>
+  <div id="quote" class="center">Benim naçiz vücudum elbet bir gün<br>toprak olacaktır, fakat<br>Türkiye Cumhuriyeti ilelebet<br>payidar kalacaktır.</div>
+  <img id="sig" src="imza.png" alt="Gazi M. Kemal">
+  <div id="msg" class="center">Ebedî Başkomutanımızı saygı, minnet ve özlemle anıyoruz.</div>
   <img id="logo" src="yesilyurt-logo.png" alt="Yeşilyurt Apple Onarım Merkezi">
 </div>
 </body>
