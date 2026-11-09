@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>10 Kasım Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --petrol:#009999;      /* Siemens petrol */
+    --petrol-soft:#4fc3c3;
+    --ink:#07090b;
+    --paper:#f2efe9;
+    --muted:#9aa3a8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1920px;background:var(--ink);overflow:hidden}
+  #stage{position:relative;width:1080px;height:1920px;overflow:hidden;
+    background:radial-gradient(120% 70% at 50% 30%, #12181b 0%, #07090b 60%, #030405 100%);
+    font-family:Inter,sans-serif;color:var(--paper)}
+  /* soft light that drifts */
+  #glow{position:absolute;width:1400px;height:1400px;left:-160px;top:-60px;border-radius:50%;
+    background:radial-gradient(circle, rgba(0,153,153,.18) 0%, rgba(0,153,153,.05) 35%, transparent 65%);}
+  #grain{position:absolute;inset:0;opacity:.06;mix-blend-mode:screen;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");}
+  .center{position:absolute;left:0;right:0;text-align:center}
+  #clock{position:absolute;left:50%;top:260px;width:420px;height:420px;margin-left:-210px}
+  #date{top:740px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:92px;letter-spacing:.06em}
+  #time{top:860px;font-size:30px;letter-spacing:.5em;color:var(--petrol-soft);font-weight:400;padding-left:.5em}
+  #rule{position:absolute;left:50%;top:960px;height:2px;background:var(--petrol);transform:translateX(-50%)}
+  #quote{top:1010px;padding:0 120px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+    font-size:50px;line-height:1.32;color:#e9e5dd}
+  #quote span{display:inline-block}
+  #attrib{top:1270px;font-size:26px;letter-spacing:.32em;color:var(--muted);font-weight:400}
+  #msg{top:1360px;font-size:34px;line-height:1.45;font-weight:300;padding:0 140px}
+  #msg b{font-weight:600}
+  #logo{bottom:250px;font-family:Inter,sans-serif;font-weight:600;font-size:46px;letter-spacing:.14em;color:var(--petrol)}
+  #logo small{display:block;margin-top:10px;font-size:20px;letter-spacing:.35em;color:var(--muted);font-weight:400}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="glow"></div>
+
+  <svg id="clock" viewBox="-110 -110 220 220">
+    <circle id="ring" r="100" fill="none" stroke="#2b3438" stroke-width="1.2"/>
+    <circle id="ringP" r="100" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round"
+            stroke-dasharray="628.3" stroke-dashoffset="628.3" transform="rotate(-90)"/>
+    <g id="ticks"></g>
+    <line id="hHour" x1="0" y1="10" x2="0" y2="-52" stroke="#f2efe9" stroke-width="5" stroke-linecap="round"/>
+    <line id="hMin"  x1="0" y1="14" x2="0" y2="-80" stroke="#f2efe9" stroke-width="3" stroke-linecap="round"/>
+    <circle r="5" fill="#009999"/>
+  </svg>
+
+  <div id="date" class="center">10 KASIM 1938</div>
+  <div id="time" class="center">SAAT 09.05</div>
+  <div id="rule"></div>
+
+  <div id="quote" class="center"></div>
+  <div id="attrib" class="center">MUSTAFA KEMAL ATATÜRK</div>
+
+  <div id="msg" class="center">Ebedî Başkomutanımız <b>Gazi Mustafa Kemal Atatürk</b>’ü aramızdan ayrılışının 88. yılında saygı, minnet ve özlemle anıyoruz.</div>
+
+  <!-- Replace this wordmark with the official Siemens Home logo asset before publishing -->
+  <div id="logo" class="center">SIEMENS<small>EV ALETLERİ</small></div>
+
+  <div id="grain"></div>
+</div>
+
+<script>
+const DURATION = 12; // seconds
+const $ = id => document.getElementById(id);
+
+// clock ticks
+const ticks = $('ticks');
+for (let i = 0; i < 60; i++) {
+  const big = i % 5 === 0;
+  const a = i * 6 * Math.PI / 180;
+  const r1 = big ? 84 : 90, r2 = 95;
+  const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  l.setAttribute('x1', Math.sin(a) * r1); l.setAttribute('y1', -Math.cos(a) * r1);
+  l.setAttribute('x2', Math.sin(a) * r2); l.setAttribute('y2', -Math.cos(a) * r2);
+  l.setAttribute('stroke', big ? '#cfd6d8' : '#3a4448');
+  l.setAttribute('stroke-width', big ? 2 : 1);
+  l.dataset.i = i;
+  ticks.appendChild(l);
+}
+
+// quote, split into words for a staggered reveal
+const QUOTE = '“Benim naçiz vücudum elbet bir gün toprak olacaktır, fakat Türkiye Cumhuriyeti ilelebet payidar kalacaktır.”';
+const words = QUOTE.split(' ').map(w => { const s = document.createElement('span'); s.textContent = w; return s; });
+words.forEach((s, i) => { $('quote').appendChild(s); if (i < words.length - 1) $('quote').appendChild(document.createTextNode(' ')); });
+
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const prog = (t, start, dur) => clamp((t - start) / dur);
+const easeOut = x => 1 - Math.pow(1 - x, 3);
+const easeInOut = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+
+function fadeUp(el, p, dist = 30) {
+  const e = easeOut(p);
+  el.style.opacity = e;
+  el.style.transform = `translateY(${(1 - e) * dist}px)`;
+}
+
+function render(t) {
+  // global fade in / out
+  const gIn = easeOut(prog(t, 0, 0.8)), gOut = 1 - prog(t, DURATION - 0.6, 0.6);
+  $('stage').style.opacity = gIn * gOut;
+
+  // drifting light
+  $('glow').style.transform = `translate(${Math.sin(t * .35) * 60}px, ${t * 14}px)`;
+
+  // clock: ring draws, ticks light up, hands sweep to 09:05 and stop
+  const pRing = easeInOut(prog(t, 0.2, 2.4));
+  $('ringP').setAttribute('stroke-dashoffset', 628.3 * (1 - pRing));
+  ticks.childNodes.forEach(l => {
+    const on = pRing * 60 > +l.dataset.i;
+    l.style.opacity = on ? 1 : 0.15;
+  });
+  const pHands = easeInOut(prog(t, 0.4, 2.6));
+  // from 12:00 -> 09:05 going forward (9h05m)
+  const totalMin = pHands * (9 * 60 + 5);
+  $('hMin').setAttribute('transform', `rotate(${(totalMin % 60) * 6})`);
+  $('hHour').setAttribute('transform', `rotate(${(totalMin / 60) * 30})`);
+  const clockIn = easeOut(prog(t, 0, 1.2));
+  $('clock').style.opacity = clockIn;
+  $('clock').style.transform = `scale(${0.94 + 0.06 * clockIn})`;
+
+  fadeUp($('date'), prog(t, 2.6, 1.0));
+  fadeUp($('time'), prog(t, 3.0, 1.0), 20);
+  $('rule').style.width = `${easeInOut(prog(t, 3.3, 1.0)) * 160}px`;
+
+  // quote words
+  words.forEach((s, i) => {
+    const p = easeOut(prog(t, 4.0 + i * 0.16, 0.7));
+    s.style.opacity = p;
+    s.style.transform = `translateY(${(1 - p) * 18}px)`;
+    s.style.filter = `blur(${(1 - p) * 6}px)`;
+  });
+  fadeUp($('attrib'), prog(t, 6.6, 0.9), 16);
+  fadeUp($('msg'), prog(t, 7.6, 1.2), 26);
+  fadeUp($('logo'), prog(t, 9.0, 1.0), 16);
+}
+
+window.DURATION = DURATION;
+window.render = render;
+if (!new URLSearchParams(location.search).has('capture')) {
+  const t0 = performance.now();
+  (function loop(now) { render(((now - t0) / 1000) % DURATION); requestAnimationFrame(loop); })(t0);
+} else {
+  render(0);
+}
+</script>
+</body>
+</html>
